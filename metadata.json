@@ -1,0 +1,5 @@
+{
+  "name": "信桑雲端髮型診所-小飛客服",
+  "description": "一個使用Gemini API的客服機器人「小飛」，為信桑雲端髮型診所的客戶提供台灣風格的親切問答服務。",
+  "requestFramePermissions": []
+}
