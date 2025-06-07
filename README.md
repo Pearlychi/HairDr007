@@ -39,21 +39,21 @@
 
 ## 🔑 Environment Variables
 
-The application requires a Google Gemini API Key to interact with the Gemini models. This key must be available as `process.env.API_KEY` in the JavaScript execution context.
+The application requires a Google Gemini API Key to interact with the Gemini models. This key must be available as `import.meta.env.VITE_API_KEY` in the JavaScript execution context.
 
 *   **For Vercel Deployment (Recommended):**
     Set the `API_KEY` in your Vercel project's "Settings" > "Environment Variables". Vercel will securely inject this into your application's environment.
 
 *   **For Local Development:**
-    The `App.tsx` component attempts to read `process.env.API_KEY`.
+    The `App.tsx` component attempts to read `import.meta.env.VITE_API_KEY`.
     1.  If you are using a development server like Vite, Next.js, or Parcel, these tools typically support loading variables from a `.env` file. Create a `.env` file in the project root (add this file to your `.gitignore`):
         ```env
-        # For Vite, you would typically use VITE_API_KEY=YOUR_KEY and access it via import.meta.env.VITE_API_KEY
+        # For Vite, you would typically use VITE_API_KEY=YOUR_KEY and access it via VITE_API_KEY import.meta.env.VITE_API_KEY
         # For Next.js or other Node.js-based dev servers that read .env directly:
         API_KEY="YOUR_GEMINI_API_KEY"
         ```
-        Replace `YOUR_GEMINI_API_KEY` with your actual key. Ensure your development setup correctly makes this variable accessible as `process.env.API_KEY` (or adapt `App.tsx` if your tool uses a different mechanism like `import.meta.env`).
-    2.  **If running `index.html` directly in a browser without a dev server:** `process.env.API_KEY` will be `undefined`. For local testing in this specific scenario, you might temporarily modify `App.tsx` to use the API key string directly:
+        Replace `YOUR_GEMINI_API_KEY` with your actual key. Ensure your development setup correctly makes this variable accessible as `import.meta.env.VITE_API_KEY` (or adapt `App.tsx` if your tool uses a different mechanism like `import.meta.env`).
+    2.  **If running `index.html` directly in a browser without a dev server:** `import.meta.env.VITE_API_KEY` will be `undefined`. For local testing in this specific scenario, you might temporarily modify `App.tsx` to use the API key string directly:
         ```javascript
         // In App.tsx, for local testing ONLY:
         // const apiKey = "YOUR_ACTUAL_GEMINI_API_KEY";
