@@ -13,7 +13,8 @@ const App: React.FC = () => {
   const [chat, setChat] = useState<Chat | null>(null);
   const [error, setError] = useState<string | null>(null);
   const chatAreaRef = useRef<HTMLDivElement>(null);
-  const apiKey = process.env.API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
+
 
   useEffect(() => {
     if (!apiKey) {
@@ -123,7 +124,8 @@ const App: React.FC = () => {
           <div className="bg-white p-8 rounded-lg shadow-xl text-center">
             <h1 className="text-2xl font-bold text-pink-600 mb-4">糟糕！出錯了</h1>
             <p className="text-slate-700">{error}</p>
-            {error.includes("API Key") && <p className="mt-2 text-sm text-slate-500">請確認您的環境變數 `process.env.API_KEY` 已正確設定。</p>}
+            {error.includes("API Key") && <p className="mt-2 text-sm text-slate-500">請確認您的環境變數 `import.meta.env.VITE_API_KEY
+` 已正確設定。</p>}
           </div>
         </div>
       );
